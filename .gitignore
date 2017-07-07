@@ -1,0 +1,13 @@
+
+sorting/Debug/sorting.ilk
+*.pdb
+*.tlog
+*.idb
+*.log
+*.sdf
+*.opendb
+*.vcxproj
+*.filters
+*.sln
+*.obj
+sorting/.vs/sorting/v14/.suo
