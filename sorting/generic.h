@@ -13,12 +13,14 @@ public:
 	Census_Tract(std::string name, double area, int pop_count, double pop_density)
 		:name(name), area(area), pop_count(pop_count), pop_density(pop_density) {}
 };
+
 //reads the censuses to a vector
-class Reading_From_File {
+class Data {
 	std::ifstream myfile;
 public:
 	std::vector<Census_Tract> c_tracts;
-	Reading_From_File() {}
+	Data() {}
+
 	//reading the input
 	void read_data(std::string filename) {
 		myfile.open(filename);
@@ -41,5 +43,24 @@ public:
 			}
 		}
 		myfile.close();
+	}
+};
+
+class Mergesort {
+public:
+	void merge(Data& data,int l,int m,int r) {
+		
+	}
+	void mergesort(Data& data, int l, int r) {
+		if (l < r) {
+			int m = l + (r - 1) / 2;
+			mergesort(data, l, m);
+			mergesort(data, m + 1, r);
+
+			merge(data, l, m, r);
+		}
+	}
+	void operator()(Data& data) {
+		mergesort(data, 0, data.c_tracts.size()-1);
 	}
 };

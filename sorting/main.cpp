@@ -3,9 +3,11 @@
 #include "generic.h"
 using namespace std;
 int main() {
-	Reading_From_File rf_file;
+	Mergesort msort;
+	Data rf_file;
 	rf_file.read_data("pop_density.txt");
-	cout << rf_file.c_tracts[2].pop_density;
+	//cout << rf_file.c_tracts[2].pop_density;
+	msort(rf_file);
 	int x;
 	cin >> x;
 }
