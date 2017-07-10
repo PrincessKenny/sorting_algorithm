@@ -44,7 +44,7 @@ public:
 			double area;
 			int pop_count;
 			double pop_density;
-			
+
 			for (std::string line; std::getline(myfile, line);) {//gets a string by line, then breaks it down to substrings, and gets the values
 				std::string::size_type pos = line.find('|');			//the pos and the pos2 moves, giving you substrings
 				name = line.substr(0, pos);
@@ -76,7 +76,7 @@ class Mergesort {
 		i = 0;
 		j = 0;
 		k = l;
-		while (i < n1 && j < n2){
+		while (i < n1 && j < n2) {
 			if (temp1[i] <= temp2[j]) {
 				data[k] = temp1[i];
 				i++;
@@ -111,8 +111,57 @@ class Mergesort {
 public:
 	static void merger(Data& data) {
 		clock_t t = clock();
-		mergesort(data, 0, data.size()-1 );
+		mergesort(data, 0, data.size() - 1);
 		t = clock() - t;
-		std::cout << t<<std::endl;
+		std::cout << t << std::endl;
+	}
+};
+
+class Quicksort {
+
+
+	static int partition(Data& data, int l,int h)
+	{
+		// pivot (Element to be placed at right position)
+		Census_Tract pivot = data[h];
+
+		int i = (l - 1);  // Index of smaller element
+
+			for (int j = l; j <= h - 1; j++)
+			{
+				// If current element is smaller than or
+				// equal to pivot
+				if (data[j] <= pivot)
+				{
+					i++;    // increment index of smaller element
+					swap(data[i], data[j]);
+				}
+			}
+			swap(data[i + 1], data[h]);
+			return (i + 1);
+	}
+	static void swap(Census_Tract& c1, Census_Tract& c2) {
+		Census_Tract tmp = c1;
+		c1 = c2;
+		c2 = tmp;
+	}
+	static void quicksort(Data& data, int l, int h)
+	{
+		if (l < h)
+		{
+			/* pi is partitioning index, arr[p] is now
+			at right place */
+			int pi = partition(data, l, h);
+
+			quicksort(data, l, pi - 1);  // Before pi
+			quicksort(data, pi + 1, h); // After pi
+		}
+	}
+public:
+	static void qsort(Data& data) {
+		clock_t t = clock();
+		quicksort(data, 0, data.size() - 1);
+		t = clock() - t;
+		std::cout << t;
 	}
 };
