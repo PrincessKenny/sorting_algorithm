@@ -5,11 +5,11 @@
 #include <time.h>
 // This is one census tract
 class Census_Tract {
-public:
 	double area;
 	double pop_density;
 	int pop_count;
 	std::string name;
+public:
 	Census_Tract(std::string name, double area, int pop_count, double pop_density)
 		:name(name), area(area), pop_count(pop_count), pop_density(pop_density) {}
 	friend bool operator<=(const Census_Tract& lhs, const Census_Tract& rhs);
@@ -24,8 +24,8 @@ bool operator<=(const Census_Tract& lhs, const Census_Tract& rhs) {
 //reads the censuses to a vector
 class Data {
 	std::ifstream myfile;
-public:
 	std::vector<Census_Tract> c_tracts;
+public:
 	Data() {}
 	size_t size() {
 		return c_tracts.size();
@@ -62,7 +62,7 @@ public:
 	}
 };
 
-class Mergesort {
+class MergeSort {
 	static void merge(Data& data, int l, int m, int r) {
 		int i, j, k;
 		std::vector<Census_Tract> temp1;
@@ -117,7 +117,7 @@ public:
 	}
 };
 
-class Quicksort {
+class QuickSort {
 
 
 	static int partition(Data& data, int l,int h)
