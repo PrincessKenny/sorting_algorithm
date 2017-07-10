@@ -3,11 +3,13 @@
 #include "generic.h"
 using namespace std;
 int main() {
-	Mergesort msort;
 	Data rf_file;
 	rf_file.read_data("pop_density.txt");
-	//cout << rf_file.c_tracts[2].pop_density;
-	msort(rf_file);
+	Mergesort::merger(rf_file);
+/*	for (int i = 70000; i >= 69000; i--) {
+		cout << rf_file.c_tracts[i].name << endl;
+		cout << rf_file.c_tracts[i].pop_density << endl;
+	}*/
 	int x;
 	cin >> x;
 }
