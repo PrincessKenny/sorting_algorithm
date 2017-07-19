@@ -5,11 +5,11 @@
 #include <time.h>
 // This is one census tract
 class Census_Tract {
+public:
 	double area;
 	double pop_density;
 	int pop_count;
 	std::string name;
-public:
 	Census_Tract(std::string name, double area, int pop_count, double pop_density)
 		:name(name), area(area), pop_count(pop_count), pop_density(pop_density) {}
 	friend bool operator<=(const Census_Tract& lhs, const Census_Tract& rhs);
